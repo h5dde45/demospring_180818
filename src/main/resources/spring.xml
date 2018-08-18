@@ -9,6 +9,11 @@
         <constructor-arg value="asd fg"/>
     </bean>
     <bean id="eventLogger" class="com.example.entities.ConsoleEventLogger"/>
+    <bean id="event" class="com.example.entities.Event" scope="prototype">
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+    </bean>
     <bean id="app" class="com.example.entities.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="eventLogger"/>

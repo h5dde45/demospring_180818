@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class App {
     private Client client;
     private ConsoleEventLogger eventLogger;
@@ -9,22 +11,23 @@ public class App {
 
     public App(Client client, ConsoleEventLogger consoleEventLogger) {
         this.client = client;
-        this.eventLogger = eventLogger;
+        this.eventLogger = consoleEventLogger;
     }
 
     public void logEvent(String msg) {
         String message = msg.replaceAll(
                 client.getId(), client.getFullName()
         );
-        eventLogger.logEvent(message);
+//        eventLogger.logEvent(message);
     }
 
     public static void main(String[] args) {
-        App app = new App();
-        app.client=new Client("1","asd fg");
-        app.eventLogger=new ConsoleEventLogger();
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("spring.xml");
+        App app = (App) context.getBean("app");
 
         app.logEvent("Some event for use 1");
+        app.logEvent("Some event for use 2");
     }
 
     public Client getClient() {
