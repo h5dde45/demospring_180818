@@ -11,19 +11,7 @@ public class Start {
 
 
         ModelT1000 robot = (ModelT1000) context.getBean("t1000");
-        System.out.println(robot);
-        System.out.println(robot.getHead());
-        System.out.println(robot.getHand());
 
-        robot = (ModelT1000) context.getBean("t1000");
-        System.out.println(robot);
-        System.out.println(robot.getHead());
-        System.out.println(robot.getHand());
-
-        robot = (ModelT1000) context.getBean("t1000");
-        System.out.println(robot);
-        System.out.println(robot.getHead());
-        System.out.println(robot.getHand());
 
 
     }
