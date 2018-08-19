@@ -4,6 +4,34 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="t1000" class=""></bean>
+    <bean id="t1000" class="com.example.objects.robots.ModelT1000" scope="prototype"
+          init-method="initObject"
+          destroy-method="destroyObject"
+    >
+
+        <constructor-arg value="true" type="boolean"/>
+        <constructor-arg value="red" index="0"/>
+        <constructor-arg value="123"/>
+
+        <property name="head" ref="toshHead"/>
+        <property name="hand" ref="toshHand"/>
+        <property name="leg" ref="toshLeg"/>
+
+    </bean>
+
+    <bean id="t1000Empty" class="com.example.objects.robots.ModelT1000">
+        <constructor-arg ref="sonyHead"/>
+        <constructor-arg ref="sonyHand"/>
+        <constructor-arg ref="sonyLeg"/>
+
+    </bean>
+
+    <bean id="sonyHead" class="com.example.objects.sony.SonyHead"/>
+    <bean id="sonyHand" class="com.example.objects.sony.SonyHand"/>
+    <bean id="sonyLeg" class="com.example.objects.sony.SonyLeg"/>
+
+    <bean id="toshHead" class="com.example.objects.tosh.ToshHead"/>
+    <bean id="toshHand" class="com.example.objects.tosh.ToshHand"/>
+    <bean id="toshLeg" class="com.example.objects.tosh.ToshLeg"/>
 
 </beans>
